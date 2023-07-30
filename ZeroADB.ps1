@@ -6,6 +6,9 @@ if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
     exit
 }
 
+# Load the BITS Transfer module
+Import-Module BitsTransfer
+
 # Target URL and destination directory for the download
 $url = "https://dl.google.com/android/repository/platform-tools-latest-windows.zip"
 $output = "C:\Program Files\Platform-Tools\platform-tools.zip"
@@ -22,8 +25,8 @@ try {
         New-Item -ItemType Directory -Force -Path "C:\Program Files\Platform-Tools\"
     }
 
-    # Download file
-    Invoke-WebRequest -Uri $url -OutFile $output
+    # Download file using BITS Transfer with options
+    Start-BitsTransfer -Source $url -Destination $output -Asynchronous -Priority High -TransferType Download
 
     # Unzip the downloaded file
     Expand-Archive -Path $output -DestinationPath "C:\Program Files\Platform-Tools\" -Force
@@ -37,7 +40,7 @@ try {
     [Environment]::SetEnvironmentVariable("Path", $newPath, "Machine")
 
 } catch {
-    Write-Output "Error Occured!: $($_.Exception.Message)"
+    Write-Output "Error Occurred!: $($_.Exception.Message)"
     Write-Output "Continue the process"
 }
 
