@@ -5,7 +5,7 @@ Just run the following line and you're done!
 **Administrator privileges are required for execution.**
 
 ```pwsh
-Start-Process -FilePath "powershell" -ArgumentList "Invoke-Expression (Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/Katsuyuki-Karasawa/ZeroADB/main/ZeroADB.ps1').Content" -Verb RunAs
+Start-Process -FilePath "powershell" -ArgumentList "Invoke-Expression (Invoke-WebRequest -Uri 'http://me.katsuyuki-karasawa.dev/ZeroADB/ZeroADB.ps1').Content" -Verb RunAs
 ```
 
 ## Warning!
@@ -19,7 +19,7 @@ Currently only Windows is supported.
 **管理者権限が必要です**
 
 ```pwsh
-Start-Process -FilePath "powershell" -ArgumentList "Invoke-Expression (Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/Katsuyuki-Karasawa/ZeroADB/main/ZeroADB.ps1').Content" -Verb RunAs
+Start-Process -FilePath "powershell" -ArgumentList "Invoke-Expression (Invoke-WebRequest -Uri 'http://me.katsuyuki-karasawa.dev/ZeroADB/ZeroADB.ps1').Content" -Verb RunAs
 ```
 
 ## 注意
